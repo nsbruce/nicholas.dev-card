@@ -1,10 +1,10 @@
 {
-  "name": "ashleywillis",
-  "version": "1.2.0",
-  "description": "Ashley Willis' terminal business card",
+  "name": "nicholasbruce",
+  "version": "0.0.0",
+  "description": "Nicholas Bruce's terminal business card",
   "main": "bin.js",
   "bin": {
-    "ashleywillis": "./bin.js"
+    "nicholasbruce": "./bin.js"
   },
   "scripts": {
     "start": "node bin.js"
@@ -14,7 +14,7 @@
     "business-card",
     "npx"
   ],
-  "author": "Ashley Willis <hello@ashley.dev> (https://ashley.dev)",
+  "author": "Nicholas Bruce <nicholas@nicholasbruce.ca> (https://nicholasbruce.ca)",
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.2"

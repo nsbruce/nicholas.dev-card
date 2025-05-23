@@ -2,48 +2,59 @@
 
 const chalk = require('chalk');
 
-// Define colors and styles
-const primary = chalk.hex('#36D1DC');    // Vibrant teal for borders
-const secondary = chalk.hex('#FF6B6B');  // Coral pink for brackets
-const accent = chalk.hex('#58D68D');     // Bright green for URLs
-const subtle = chalk.hex('#AEB6BF');     // Subtle gray for dividers
-const highlight = chalk.hex('#FFDB58').bold; // Golden yellow for name
 
+// Define colors and styles (Base4Tone Classic C)
+const border = chalk.hex('#e97263');
+const divider = chalk.hex('#f18c7e');
+const plainText = chalk.hex('#f5d8a8');
+const secondary = chalk.hex('#de5745');
+const highlight = chalk.hex('#c5dc18').bold;
+const handle = chalk.hex('#16ca85');
+const label = chalk.hex('#049a61').bold;
+const bsky = chalk.blue;
+const url = chalk.greenBright.underline;
+const email = chalk.magentaBright;
+// const web = chalk.blueBright;
+const gh = chalk.yellowBright;
+const work = chalk.redBright;
+
+const flag = '🇨🇦';
 // Card dimensions - fixed width for better alignment
 const width = 54;
 
 // Create borders with exact width
-const topBorder = primary('╭' + '─'.repeat(width) + '╮');
-const bottomBorder = primary('╰' + '─'.repeat(width) + '╯');
+const topBorder = border('╔' + '═'.repeat(width) + '╗');
+const bottomBorder = border('╚' + '═'.repeat(width) + '╝');
 
 // Function to create a line with perfectly aligned borders
-const createLine = (text) => {
+const createLine = (text, extra_whitespaces = 0) => {  // extra whitespace because I can't figure out the correct length with the flag
   // Strip ANSI codes for accurate length calculation
   const cleanText = text.replace(/\u001b\[\d+(;\d+)*m/g, '');
-  const padding = width - cleanText.length;
-  return primary('│') + text + ' '.repeat(padding) + primary('│');
+  const padding = width - cleanText.length; // 2 for the borders
+  return border('║') + text + ' '.repeat(padding + extra_whitespaces) + border('║');
 };
+
 
 // Empty line and divider
 const emptyLine = createLine(' '.repeat(width));
-const divider = createLine(' ' + subtle('━'.repeat(width - 2)) + ' ');
+const horizLine = createLine(' ' + divider('─'.repeat(width - 2)) + ' ');
 
 // Build the card with precise spacing
 const card = [
   '',
   topBorder,
   emptyLine,
-  createLine(' ' + secondary('{') + highlight('Ashley Willis') + secondary('}') + ' ' + primary('</') + accent('ashley.dev') + primary('>')),
-  divider,
+  createLine(' ' + highlight('Nicholas Bruce') + ' ' +  secondary('(') + plainText('he/him') + secondary(')')),
+  horizLine,
   emptyLine,
-  createLine(' ' + secondary('⚙') + '  ' + chalk.cyanBright('Work') + '    :: ' + chalk.white('Sr. Dir. of DevRel @ GitHub')),
-  createLine(' ' + accent('☁') + '  ' + chalk.cyanBright('Bluesky') + ' :: ' + chalk.cyan('@ashley.dev')),
-  createLine(' ' + highlight('★') + '  ' + chalk.cyanBright('GitHub') + '  :: ' + chalk.greenBright.underline('https://github.com/ashleymcnamara')),
-  createLine(' ' + chalk.magentaBright('✉') + '  ' + chalk.cyanBright('Email') + '   :: ' + chalk.greenBright.underline('hello@ashley.dev')),
-  createLine(' ' + chalk.blueBright('⌂') + '  ' + chalk.cyanBright('Web') + '     :: ' + chalk.greenBright.underline('https://ashley.dev')),
+  createLine(' ' + work('⚙') + '  ' + label('Work') + divider('    ∴ ') + plainText('Radio telescope engineer @ NRC ') + flag, 2),
+  createLine(' ' + bsky('☁') + '  ' + label('Bluesky') + divider(' ∴ ') + handle('@dorktips')),
+  createLine(' ' + gh('★') + '  ' + label('GitHub') + divider('  ∴ ') + url('https://github.com/nsbruce')),
+  createLine(' ' + email('✉') + '  ' + label('Email') + divider('   ∴ ') + url('nicholas@nicholasbruce.ca')),
+  // createLine(' ' + web('⌂') + '  ' + label('Web') + divider('     ∴ ') + url('https://dorktips.ca')),
   emptyLine,
-  divider,
-  createLine(' ' + subtle('>') + ' ' + subtle('Run') + ' ' + secondary('npx') + ' ' + highlight('ashleywillis') + ' ' + subtle('anytime to see this card')),
+  horizLine,
+  createLine(' ' + divider('>') + ' ' + plainText('Run') + ' `' + secondary('npx') + ' ' + highlight('nicholasbruce') + '` ' + plainText('anytime to see this card')),
   emptyLine,
   bottomBorder,
   ''
