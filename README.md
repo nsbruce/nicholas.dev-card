@@ -12,16 +12,19 @@
 
 ## 🚀 Usage
 
-Fire up your favorite terminal and run:
+Fire up your favorite terminal and run one of:
 
 ```bash
 $ npx nicholasbruce
-# Watch the magic happen!
+# Watch the magic happen in Node land!
 ```
 
-## 🧪 Tech Specs
+```bash
+$ pipx run nicholasbruce
+# Watch the magic happen in Python land!
+```
 
-Built with `Node.js` ✨
+```bash
 
 ## 🔌 Credits 
 
