@@ -1,14 +1,15 @@
-                                               ```ascii
+```ascii
   _   _ _      _           _           
  | \ | (_)    | |         | |          
  |  \| |_  ___| |__   ___ | | __ _ ___ 
  | . ` | |/ __| '_ \ / _ \| |/ _` / __|
  | |\  | | (__| | | | (_) | | (_| \__ \
  |_| \_|_|\___|_| |_|\___/|_|\__,_|___/
-                                       
-                                       
+```
 
+```txt
 > 💻 Nicholas Bruce's terminal business card 🖥️
+```
 
 ## 🚀 Usage
 
@@ -23,8 +24,6 @@ $ npx nicholasbruce
 $ pipx run nicholasbruce
 # Watch the magic happen in Python land!
 ```
-
-```bash
 
 ## 🔌 Credits 
 
